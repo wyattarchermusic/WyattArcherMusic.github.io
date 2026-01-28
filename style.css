@@ -35,7 +35,6 @@ html, body {
   opacity: 1;
 }
 
-/* HERO SECTION */
 .hero {
   height: 100vh;
   width: 100%;
@@ -44,10 +43,12 @@ html, body {
       rgba(0,0,0,0.35),
       rgba(0,0,0,0.35)
     ),
-    url("./images/wyatt-archer-live.png") center / cover no-repeat;
+    url("./images/hero.jpg") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
 }
 
 }
