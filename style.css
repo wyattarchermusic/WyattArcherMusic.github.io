@@ -35,7 +35,7 @@ html, body {
   opacity: 1;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
   height: 100vh;
   width: 100%;
@@ -44,13 +44,13 @@ html, body {
       rgba(0,0,0,0.35),
       rgba(0,0,0,0.35)
     ),
-    url("./images/YOUR_IMAGE_FILENAME") center / cover no-repeat;
+    url("./images/Wyatt%20Archer%20live%20in%20concert.png") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* TEXT */
+/* HERO TEXT */
 .hero-text {
   text-align: center;
   letter-spacing: 0.08em;
@@ -60,18 +60,3 @@ html, body {
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 600;
 }
-
-.hero-text h2 {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 400;
-  margin-top: 14px;
-}
-
-.divider {
-  width: 120px;
-  height: 1px;
-  background: #f5f1e8;
-  margin: 18px auto 10px;
-  opacity: 0.7;
-}
-
