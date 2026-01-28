@@ -44,10 +44,12 @@ html, body {
       rgba(0,0,0,0.35),
       rgba(0,0,0,0.35)
     ),
-    url("./images/Wyatt%20Archer%20live%20in%20concert.png") center / cover no-repeat;
+    url("./images/wyatt-archer-live.png") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
 }
 
 /* HERO TEXT */
