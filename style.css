@@ -11,12 +11,17 @@ html, body {
 /* SOCIAL ICON NAV */
 .social-nav {
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 22px;
   z-index: 10;
+
+  /* helps when screen is narrow */
+  max-width: calc(100% - 24px);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .social-nav img {
@@ -31,7 +36,7 @@ html, body {
 
 /* HERO */
 .hero {
-  height: 100vh;
+  min-height: 100vh;            /* safer on mobile */
   width: 100%;
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
@@ -39,35 +44,44 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* gives breathing room if you add content later */
+  padding: 64px 16px 24px;
 }
 
-/* HERO TEXT */
-.hero-text {
-  text-align: center;
-  letter-spacing: 0.08em;
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  /* Make the icon row smaller + easier to fit */
+  .social-nav {
+    top: 14px;
+    gap: 14px;
+  }
+
+  .social-nav img {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Reframe the image for phones:
+     move the focal point slightly upward/centered */
+  .hero {
+    background-position: center 35%;
+    padding-top: 72px;  /* keeps icons from feeling cramped */
+  }
 }
 
-.hero-text h1 {
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 600;
-}
+/* SMALL PHONES */
+@media (max-width: 420px) {
+  .social-nav {
+    gap: 12px;
+  }
+  .social-nav img {
+    width: 17px;
+    height: 17px;
+  }
 
-.hero-text h2 {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 400;
-  margin-top: 14px;
-}
-
-.divider {
-  display: block;
-  width: 120px;
-  height: 1px;
-  background: #f5f1e8;
-  margin: 18px auto 10px;
-  opacity: 0.7;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .social-nav { gap: 18px; }
+  /* Push focal point a bit more if needed */
+  .hero {
+    background-position: center 30%;
+  }
 }
