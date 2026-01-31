@@ -1,61 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Wyatt Archer Music</title>
 
+  <!-- Main stylesheet (cache-busted) -->
+  <link rel="stylesheet" href="/style.css?v=20260131-final" />
+</head>
 
-  <!-- Force-refresh CSS on mobile Safari -->
-  <<link rel="stylesheet" href="/style.css?v=20260131b" />
 <body>
-<style>
-  /* Mobile "too big" emergency override */
 
-  html, body { width: 100%; overflow-x: hidden; }
-
-  /* prevents giant images from blowing up the layout */
-  img, svg, object, embed {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* force the hero area to fit the phone */
-  .hero {
-    min-height: 100svh !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 84px 16px 28px !important; /* room for icons */
-    overflow: hidden !important;
-  }
-
-  /* force ANY image inside the hero to scale down properly */
-  .hero img, .hero svg, .hero object, .hero embed {
-    width: min(92vw, 760px) !important;
-    max-width: 92vw !important;
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-
-  /* if your logo isn't inside .hero, these catch common cases */
-  #logo, .logo, .logo img, header img {
-    width: min(92vw, 760px) !important;
-    max-width: 92vw !important;
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-
-  /* small phones */
-  @media (max-width: 420px) {
-    .hero { padding-top: 92px !important; }
-    .hero img, #logo, .logo img, header img { max-width: 92vw !important; }
-  }
-</style>
   <!-- Social links (centered top) -->
   <nav class="social-nav" aria-label="Social links">
-    <!-- Replace these hrefs with your real links -->
     <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/spotify.svg" alt="Spotify">
     </a>
@@ -77,9 +34,7 @@
   </nav>
 
   <!-- Hero -->
-  <main class="hero">
-    
-  </main>
+  <main class="hero"></main>
 
 </body>
 </html>
