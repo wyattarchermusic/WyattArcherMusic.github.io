@@ -7,7 +7,7 @@ html, body {
   background: #111;
   color: #f5f1e8;
   font-family: Georgia, "Times New Roman", serif;
-  overflow-x: hidden; /* prevents weird horizontal scaling */
+  overflow-x: hidden;
 }
 
 /* SOCIAL ICON NAV */
@@ -19,12 +19,10 @@ html, body {
   display: flex;
   gap: 22px;
   z-index: 10;
-
-  /* helps when screen is narrow */
   max-width: calc(100% - 24px);
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 12px; /* keep icons off the edges */
+  padding: 0 12px;
 }
 
 .social-nav img {
@@ -41,7 +39,7 @@ html, body {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100svh; /* iPhone-safe viewport height */
+  min-height: 100svh;
   overflow: hidden;
 
   background:
@@ -52,8 +50,7 @@ html, body {
   align-items: center;
   justify-content: center;
 
-  /* breathing room for icons at top + any future content */
-  padding: 72px 16px 28px;
+  padding: 78px 16px 28px;
 }
 
 /* fallback for browsers that don't support svh */
@@ -61,60 +58,43 @@ html, body {
   .hero { min-height: 100vh; }
 }
 
-/* LOGO IMAGE INSIDE HERO
-   IMPORTANT: this targets ANY image inside .hero.
-   If you have other images in hero, use the "OPTION B" below instead. */
+/* HARD OVERRIDE: make the logo image scale on phones no matter what */
 .hero img {
-  width: min(92vw, 760px);  /* scales down on phones, caps on desktop */
-  height: auto;
-  display: block;
-  max-width: 100%;
+  width: min(92vw, 760px) !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block !important;
 }
 
-/* OPTIONAL: if your logo image looks too tall, you can cap height:
-.hero img { max-height: 58svh; }
-*/
+/* Prevent any fixed-width hero children from forcing page wider */
+.hero, .hero * { max-width: 100%; }
 
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
-  .social-nav {
-    top: 14px;
-    gap: 14px;
-  }
+  .social-nav { top: 14px; gap: 14px; }
+  .social-nav img { width: 18px; height: 18px; }
 
-  .social-nav img {
-    width: 18px;
-    height: 18px;
-  }
-
-  /* Reframe the image for phones */
   .hero {
     background-position: center 35%;
-    padding-top: 74px;
+    padding-top: 82px;
   }
 
   .hero img {
-    width: min(92vw, 520px);
+    width: min(92vw, 520px) !important;
   }
 }
 
 /* SMALL PHONES */
 @media (max-width: 420px) {
-  .social-nav {
-    gap: 12px;
-  }
-
-  .social-nav img {
-    width: 17px;
-    height: 17px;
-  }
+  .social-nav { gap: 12px; }
+  .social-nav img { width: 17px; height: 17px; }
 
   .hero {
     background-position: center 30%;
-    padding-top: 78px;
+    padding-top: 86px;
   }
 
   .hero img {
-    width: 92vw;
+    width: 92vw !important;
   }
 }
