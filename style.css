@@ -3,9 +3,11 @@
 
 html, body {
   height: 100%;
+  width: 100%;
   background: #111;
   color: #f5f1e8;
   font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden; /* prevents weird horizontal scaling */
 }
 
 /* SOCIAL ICON NAV */
@@ -22,6 +24,7 @@ html, body {
   max-width: calc(100% - 24px);
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 12px; /* keep icons off the edges */
 }
 
 .social-nav img {
@@ -36,22 +39,44 @@ html, body {
 
 /* HERO */
 .hero {
-  min-height: 100vh;            /* safer on mobile */
+  position: relative;
   width: 100%;
+  min-height: 100svh; /* iPhone-safe viewport height */
+  overflow: hidden;
+
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
     url("./images/hero.jpg") center / cover no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* gives breathing room if you add content later */
-  padding: 64px 16px 24px;
+  /* breathing room for icons at top + any future content */
+  padding: 72px 16px 28px;
 }
+
+/* fallback for browsers that don't support svh */
+@supports not (min-height: 100svh) {
+  .hero { min-height: 100vh; }
+}
+
+/* LOGO IMAGE INSIDE HERO
+   IMPORTANT: this targets ANY image inside .hero.
+   If you have other images in hero, use the "OPTION B" below instead. */
+.hero img {
+  width: min(92vw, 760px);  /* scales down on phones, caps on desktop */
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* OPTIONAL: if your logo image looks too tall, you can cap height:
+.hero img { max-height: 58svh; }
+*/
 
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
-  /* Make the icon row smaller + easier to fit */
   .social-nav {
     top: 14px;
     gap: 14px;
@@ -62,11 +87,14 @@ html, body {
     height: 18px;
   }
 
-  /* Reframe the image for phones:
-     move the focal point slightly upward/centered */
+  /* Reframe the image for phones */
   .hero {
     background-position: center 35%;
-    padding-top: 72px;  /* keeps icons from feeling cramped */
+    padding-top: 74px;
+  }
+
+  .hero img {
+    width: min(92vw, 520px);
   }
 }
 
@@ -75,13 +103,18 @@ html, body {
   .social-nav {
     gap: 12px;
   }
+
   .social-nav img {
     width: 17px;
     height: 17px;
   }
 
-  /* Push focal point a bit more if needed */
   .hero {
     background-position: center 30%;
+    padding-top: 78px;
+  }
+
+  .hero img {
+    width: 92vw;
   }
 }
