@@ -10,6 +10,13 @@ html, body {
   overflow-x: hidden;
 }
 
+/* GLOBAL IMAGE SAFETY NET (prevents giant images on phones) */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
 /* SOCIAL ICON NAV */
 .social-nav {
   position: absolute;
@@ -44,57 +51,41 @@ html, body {
 
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url("./images/hero.jpg") center / cover no-repeat;
+    url("/images/hero.jpg") center / cover no-repeat;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 78px 16px 28px;
+  padding: 84px 16px 28px; /* room for social icons */
 }
 
-/* fallback for browsers that don't support svh */
 @supports not (min-height: 100svh) {
   .hero { min-height: 100vh; }
 }
 
-/* HARD OVERRIDE: make the logo image scale on phones no matter what */
+/* LOGO IMAGE IN HERO (scales nicely on phones) */
 .hero img {
   width: min(92vw, 760px) !important;
   height: auto !important;
-  max-width: 100% !important;
-  display: block !important;
+  margin: 0 auto;
 }
 
-/* Prevent any fixed-width hero children from forcing page wider */
-.hero, .hero * { max-width: 100%; }
-
-/* MOBILE OPTIMIZATION */
+/* MOBILE */
 @media (max-width: 768px) {
   .social-nav { top: 14px; gap: 14px; }
   .social-nav img { width: 18px; height: 18px; }
 
   .hero {
     background-position: center 35%;
-    padding-top: 82px;
+    padding-top: 90px;
   }
 
-  .hero img {
-    width: min(92vw, 520px) !important;
-  }
+  .hero img { width: min(92vw, 520px) !important; }
 }
 
 /* SMALL PHONES */
 @media (max-width: 420px) {
-  .social-nav { gap: 12px; }
-  .social-nav img { width: 17px; height: 17px; }
-
-  .hero {
-    background-position: center 30%;
-    padding-top: 86px;
-  }
-
-  .hero img {
-    width: 92vw !important;
-  }
+  .hero { background-position: center 30%; }
+  .hero img { width: 92vw !important; }
 }
