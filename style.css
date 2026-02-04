@@ -38,7 +38,7 @@ html, body {
 
 .social-nav img:hover { opacity: 1; }
 
-/* HERO */
+/* HERO (desktop/tablet baseline) */
 .hero {
   position: relative;
   width: 100%;
@@ -60,31 +60,33 @@ html, body {
   .hero { min-height: 100vh; }
 }
 
-/* MOBILE: show the full hero image width so the text isn't cropped */
+/* MOBILE: make hero height match the image so there’s no black scrolling gap */
 @media (max-width: 768px) {
   .social-nav { top: 14px; gap: 14px; }
   .social-nav img { width: 18px; height: 18px; }
 
   .hero {
-    /* Key change: don't force a full-screen hero on mobile */
+    /* Stop forcing a full-screen-tall hero on mobile */
     min-height: 0;
-    height: clamp(420px, 70svh, 680px);
+    height: auto;
 
-    background-size: 100% auto;        /* keep your "no side crop" behavior */
-    background-position: center top;   /* keep logo visible */
+    /* This controls the hero height (tweak if needed) */
+    aspect-ratio: 4 / 5;
+
+    /* Keep your “no side crop” behavior */
+    background-size: 100% auto;
+    background-position: center top;
     background-color: #111;
 
-    /* tighten padding so it doesn't add extra empty height */
+    /* Remove bottom padding so we don’t add empty height */
     padding: 90px 16px 0;
   }
 }
 
-
-/* SMALL PHONES */
+/* SMALL PHONES: slightly taller ratio, still no black gap */
 @media (max-width: 420px) {
   .hero {
-    background-size: 100% auto;
-    background-position: center top;
+    aspect-ratio: 3 / 4;
     padding-top: 96px;
   }
 }
