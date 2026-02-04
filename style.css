@@ -60,36 +60,34 @@ html, body {
   .hero { min-height: 100vh; }
 }
 
-/* MOBILE: make hero height match the image so there’s no black scrolling gap */
+/* MOBILE: show full image width AND remove extra black space */
 @media (max-width: 768px) {
   .social-nav { top: 14px; gap: 14px; }
   .social-nav img { width: 18px; height: 18px; }
 
   .hero {
-    /* Stop forcing a full-screen-tall hero on mobile */
+    /* stop forcing hero height on mobile */
     min-height: 0;
     height: auto;
 
-    /* This controls the hero height (tweak if needed) */
-    aspect-ratio: 4 / 5;
+    /* remove flex behavior that can make the hero "feel taller" */
+    display: block;
 
-    /* Keep your “no side crop” behavior */
+    /* keep your no-crop behavior */
     background-size: 100% auto;
     background-position: center top;
     background-color: #111;
 
-    /* Remove bottom padding so we don’t add empty height */
+    /* keep space for icons; remove bottom padding to avoid added height */
     padding: 90px 16px 0;
+
+    /* prevents any weird inline spacing edge cases */
+    line-height: 0;
   }
 }
 
-/* SMALL PHONES: slightly taller ratio, still no black gap */
-@media (max-width: 420px) {
-  .hero {
-    aspect-ratio: 3 / 4;
-    padding-top: 96px;
-  }
-}
+/* (Removed the 420px hero override entirely on purpose) */
+
 
 /* =========================
    ABOUT SECTION
