@@ -7,13 +7,14 @@ html, body {
   color: #f5f1e8;
   font-family: Georgia, "Times New Roman", serif;
   overflow-x: hidden;
-
-  /* Important: avoid weird mobile extra-height behavior */
   height: auto;
   min-height: 100%;
 }
 
-/* SOCIAL ICON NAV */
+/* =========================
+   SOCIAL ICON NAV
+   ========================= */
+
 .social-nav {
   position: absolute;
   top: 18px;
@@ -38,12 +39,17 @@ html, body {
 
 .social-nav img:hover { opacity: 1; }
 
-/* HERO (desktop/tablet baseline) */
+/* =========================
+   HERO
+   ========================= */
+
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100svh;
   overflow: hidden;
+
+  /* Desktop baseline */
+  min-height: 100vh;
 
   background:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
@@ -53,31 +59,51 @@ html, body {
   align-items: center;
   justify-content: center;
 
-  padding: 84px 16px 28px; /* room for social icons */
+  padding: 84px 16px 28px;
 }
 
-@supports not (min-height: 100svh) {
-  .hero { min-height: 100vh; }
+/* Modern viewport support */
+@supports (min-height: 100svh) {
+  .hero { min-height: 100svh; }
+}
+@supports (min-height: 100dvh) {
+  .hero { min-height: 100dvh; }
 }
 
-/* MOBILE: show full image width AND remove extra black space */
+/* =========================
+   MOBILE HERO FIX
+   ========================= */
+
 @media (max-width: 768px) {
-  .social-nav { top: 14px; gap: 14px; }
-  .social-nav img { width: 18px; height: 18px; }
+
+  .social-nav {
+    top: calc(env(safe-area-inset-top) + 14px);
+    gap: 14px;
+  }
+
+  .social-nav img {
+    width: 18px;
+    height: 18px;
+  }
 
   .hero {
-    min-height: 85svh;  /* tall enough to feel intentional */
-    
-    background-size: cover;          /* FILL the space */
-    background-position: center 25%; /* keeps WYATT ARCHER centered */
-    
+    /* Shorter hero on mobile = less cropping */
+    min-height: 72svh;
+  }
+
+  @supports (min-height: 72dvh) {
+    .hero { min-height: 72dvh; }
+  }
+
+  .hero {
+    background-size: cover;
+
+    /* Adjust this number if needed */
+    background-position: center 35%;
+
     padding: 90px 16px 28px;
   }
 }
-
-
-/* (Removed the 420px hero override entirely on purpose) */
-
 
 /* =========================
    ABOUT SECTION
@@ -110,7 +136,6 @@ html, body {
   max-width: 820px;
 }
 
-/* Slightly bigger first paragraph for "story" feel */
 .about-lead {
   font-size: 18px;
   opacity: 0.95;
