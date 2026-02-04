@@ -66,12 +66,19 @@ html, body {
   .social-nav img { width: 18px; height: 18px; }
 
   .hero {
-    background-size: 100% auto;      /* fit width, no side-cropping */
-    background-position: center top;  /* keep the logo area visible */
-    background-color: #111;          /* fills any extra space */
-    padding-top: 90px;
+    /* Key change: don't force a full-screen hero on mobile */
+    min-height: 0;
+    height: clamp(420px, 70svh, 680px);
+
+    background-size: 100% auto;        /* keep your "no side crop" behavior */
+    background-position: center top;   /* keep logo visible */
+    background-color: #111;
+
+    /* tighten padding so it doesn't add extra empty height */
+    padding: 90px 16px 0;
   }
 }
+
 
 /* SMALL PHONES */
 @media (max-width: 420px) {
