@@ -66,25 +66,15 @@ html, body {
   .social-nav img { width: 18px; height: 18px; }
 
   .hero {
-    /* stop forcing hero height on mobile */
-    min-height: 0;
-    height: auto;
-
-    /* remove flex behavior that can make the hero "feel taller" */
-    display: block;
-
-    /* keep your no-crop behavior */
-    background-size: 100% auto;
-    background-position: center top;
-    background-color: #111;
-
-    /* keep space for icons; remove bottom padding to avoid added height */
-    padding: 90px 16px 0;
-
-    /* prevents any weird inline spacing edge cases */
-    line-height: 0;
+    min-height: 85svh;  /* tall enough to feel intentional */
+    
+    background-size: cover;          /* FILL the space */
+    background-position: center 35%; /* keeps WYATT ARCHER centered */
+    
+    padding: 90px 16px 28px;
   }
 }
+
 
 /* (Removed the 420px hero override entirely on purpose) */
 
