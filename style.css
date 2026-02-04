@@ -69,7 +69,7 @@ html, body {
     min-height: 85svh;  /* tall enough to feel intentional */
     
     background-size: cover;          /* FILL the space */
-    background-position: center 30%; /* keeps WYATT ARCHER centered */
+    background-position: center 25%; /* keeps WYATT ARCHER centered */
     
     padding: 90px 16px 28px;
   }
